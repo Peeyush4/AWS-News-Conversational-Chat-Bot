@@ -85,11 +85,12 @@ def lambda_handler(event, context):
         } 
 ```
 4. We need to click “Deploy” but when we do so, you cannot run the code when using the test case because there is no requests library. For that reason,  
-a. in your local computer, download requests library by first creating an empty folder and then “pip install requests -t .” inside the folder
-b. Zip the folder and upload the code.  
-c. If needed, you need to write the code lambda_function.py again and bring all the internal folders out. 
+a. Download requests library in your local computer by first creating an empty folder and then “pip install requests -t .” inside the folder
 
-6. [Optional] Below the code, click on “Configuration” > “Permissions” and then click on the Role name’s link in the “Execution Role” section. You will be directed to “IAM > Roles” part, where  
+b. Zip the folder and upload the code.  
+c. If needed, write the code lambda_function.py again and bring all the internal folders out. 
+
+6. [Optional] Below the code, click on “Configuration” > “Permissions” and then click on the Role name’s link in the “Execution Role” section. You will be directed to the “IAM > Roles” part, where  
 
 In the permissions section, click on “Add permissions” > “Add policies”. 
 
@@ -105,9 +106,9 @@ Now, we need to create triggers.
 
 ## Storage  
 
-1. We need to create S3 bucket. I unchecked “Block all public access” while creating. Click “create bucket” 
+1. We need to create an S3 bucket. I unchecked “Block all public access” while creating. Click “Create bucket” 
 
-2. Once the bucket is created, go inside the created bucket to view properties, click on “Permissions”, edit bucket policy to below and save. 
+2. Once the bucket is created, go inside the created bucket to view properties, click on “Permissions”, edit the bucket policy below and save. 
 
 ```json
 { 
