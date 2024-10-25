@@ -135,8 +135,15 @@ Now, we need to create triggers.
 
         } 
 
-    ] 
+    ]
 
 } 
 ```
 In the lambda function’s Configuration section, you can use API link to trigger and see it is stored in S3. 
+
+
+
+
+*****UPDATES FROM KRISHNA***
+
+1. file to fetch the query paramter from front-end (basic preprocessing step) and create a url for the lambda to trigger, fetch and store details from the newsapi
