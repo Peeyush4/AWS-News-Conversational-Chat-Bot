@@ -85,11 +85,11 @@ def lambda_handler(event, context):
         } 
 ```
 4. We need to click “Deploy” but when we do so, you cannot run the code when using the test case because there is no requests library. For that reason,  
-a. in your local computer, download requests library by first creating an empty folder and then “pip install requests -t .” inside the folder 
+a. in your local computer, download requests library by first creating an empty folder and then “pip install requests -t .” inside the folder
 b. Zip the folder and upload the code.  
 c. If needed, you need to write the code lambda_function.py again and bring all the internal folders out. 
 
-5. [Optional] Below the code, click on “Configuration” > “Permissions” and then click on the Role name’s link in the “Execution Role” section. You will be directed to “IAM > Roles” part, where  
+6. [Optional] Below the code, click on “Configuration” > “Permissions” and then click on the Role name’s link in the “Execution Role” section. You will be directed to “IAM > Roles” part, where  
 
 In the permissions section, click on “Add permissions” > “Add policies”. 
 
