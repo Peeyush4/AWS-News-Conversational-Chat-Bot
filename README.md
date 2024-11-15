@@ -9,79 +9,43 @@
 3. Paste this below code 
 ```python
 import json 
-
 import requests 
-
 import boto3 
-
 import datetime 
 
- 
-
 # Initialize S3 client 
-
 s3 = boto3.client('s3') 
 
- 
-
 def lambda_handler(event, context): 
-
     # News API URL (replace with your NewsAPI key) 
-
     url = ('https://newsapi.org/v2/top-headlines?' 
-
        'country=us&' 
-
        'apiKey=6f2549f5dca74560a49b6712e4ac8259') 
 
     # Fetch news data 
-
     response = requests.get(url) 
 
-     
-
     if response.status_code == 200: 
-
-        news_data = response.json() 
-
-         
+        news_data = response.json()          
 
         # Create a unique file name based on current date and time 
-
         current_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") 
-
         file_name = f"news_{current_time}.json" 
-
          
-
         # Convert the news data to JSON format 
-
         json_data = json.dumps(news_data) 
 
-         
-
         # Upload the file to the S3 bucket 
-
         s3.put_object(Bucket='bucket-for-store', Key=file_name, Body=json_data) 
 
-         
-
         return { 
-
             'statusCode': 200, 
-
             'body': json.dumps(f"News data saved as {file_name}") 
-
         } 
-
     else: 
-
         return { 
-
             'statusCode': response.status_code, 
-
             'body': json.dumps("Failed to fetch news") 
-
         } 
 ```
 4. We need to click “Deploy” but when we do so, you cannot run the code when using the test case because there is no requests library. For that reason,  
@@ -112,31 +76,18 @@ Now, we need to create triggers.
 
 ```json
 { 
-
     "Version": "2012-10-17", 
-
     "Statement": [ 
-
         { 
-
             "Effect": "Allow", 
-
             "Principal": "*", 
-
             "Action": [ 
-
                 "s3:PutObject", 
-
                 "s3:GetObject" 
-
             ], 
-
             "Resource": "arn:aws:s3:::<bucket-name>/*" 
-
         } 
-
     ]
-
 } 
 ```
 In the lambda function’s Configuration section, you can use API link to trigger and see it is stored in S3. 
