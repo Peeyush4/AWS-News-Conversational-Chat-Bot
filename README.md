@@ -147,3 +147,32 @@ In the lambda function’s Configuration section, you can use API link to trigge
 *****UPDATES FROM KRISHNA***
 
 1. file to fetch the query paramter from front-end (basic preprocessing step) and create a url for the lambda to trigger, fetch and store details from the newsapi
+
+
+## ML code
+```
+from transformers import pipeline  
+# Load the question-answering pipeline with DistilBERT  
+qa_pipeline = pipeline("question-answering", model="distilbert-base-uncased-distilled-squad")  
+
+# Define the context and the question  
+context = text  
+question = "What are today's headlines in the US?"  
+# Get the answer  
+result = qa_pipeline(question=question,   
+                    context=context,       
+                    max_answer_len=150,    # Increase max answer length  
+                    min_answer_len=20,    # Set a minimum answer length  
+                    max_seq_len=512,      # Maximum sequence length for processing (default is 384))  
+                    )  
+
+print(f"Answer: {result['answer']}") 
+```
+
+## Amazon SageMaker 
+Amazon SageMaker: 
+1. Search for Amazon SageMaker (go to Domains in Admin Domains).
+2. Click on “Create domain” and select on any of those options (I chose “Setup for single user”). And click on “Set up”. Now, wait for the domain to get set up. 
+3. Once the domain is setup, click on the domain to see “User profiles” to view all the profiles present. Click on “Launch” after on a profile and click on “Studio”. You will be directed to the SageMaker Studio. 
+4. You can see in the Applications section of the Amazon SageMaker Studio. In that section, you can open either JupyterLab or Code Editor, click on “+ Create JupyterLab Space” if you open JupyterLab or “+ Create Code Editor Space”, name it and click on “Create space”. 
+5. Once the space is created, click on “Run space” to run it. 
