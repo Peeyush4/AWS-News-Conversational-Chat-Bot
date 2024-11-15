@@ -150,7 +150,7 @@ In the lambda function’s Configuration section, you can use API link to trigge
 
 
 ## ML code
-```
+```python
 from transformers import pipeline  
 # Load the question-answering pipeline with DistilBERT  
 qa_pipeline = pipeline("question-answering", model="distilbert-base-uncased-distilled-squad")  
