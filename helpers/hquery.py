@@ -21,17 +21,64 @@ ROLE_ARN = "your-sagemaker-execution-role"
 HUGGINGFACE_IMAGE_URI = ""
 
 # NewsAPI key
-NEWS_API_KEY = "your-newsapi-key"
+NEWS_API_KEY = "6f2549f5dca74560a49b6712e4ac8259"
 
 # Supported countries and categories
 COUNTRIES = {
-    'united states': 'us',
-    'india': 'in',
-    'canada': 'ca',
-    'germany': 'de',
-    'france': 'fr',
-    'china': 'cn',
-    'brazil': 'br'
+    "argentina": "ar",
+    "australia": "au",
+    "austria": "at",
+    "belgium": "be",
+    "brazil": "br",
+    "bulgaria": "bg",
+    "canada": "ca",
+    "china": "cn",
+    "colombia": "co",
+    "cuba": "cu",
+    "czech republic": "cz",
+    "egypt": "eg",
+    "france": "fr",
+    "germany": "de",
+    "greece": "gr",
+    "hong kong": "hk",
+    "hungary": "hu",
+    "india": "in",
+    "indonesia": "id",
+    "ireland": "ie",
+    "israel": "il",
+    "italy": "it",
+    "japan": "jp",
+    "latvia": "lv",
+    "lithuania": "lt",
+    "malaysia": "my",
+    "mexico": "mx",
+    "morocco": "ma",
+    "netherlands": "nl",
+    "new zealand": "nz",
+    "nigeria": "ng",
+    "norway": "no",
+    "philippines": "ph",
+    "poland": "pl",
+    "portugal": "pt",
+    "romania": "ro",
+    "russia": "ru",
+    "saudi arabia": "sa",
+    "serbia": "rs",
+    "singapore": "sg",
+    "slovakia": "sk",
+    "slovenia": "si",
+    "south africa": "za",
+    "south korea": "kr",
+    "sweden": "se",
+    "switzerland": "ch",
+    "taiwan": "tw",
+    "thailand": "th",
+    "turkey": "tr",
+    "uae": "ae",
+    "ukraine": "ua",
+    "united kingdom": "gb",
+    "united states": "us",
+    "venuzuela": "ve"
 }
 CATEGORIES = ['politics', 'finance', 'technology', 'sports', 'entertainment', 'health']
 
@@ -107,12 +154,12 @@ def trigger_news_api(country, category):
     Fetch news articles from NewsAPI based on country and category.
     """
     base_url = "https://newsapi.org/v2/top-headlines"
-    iso_country = COUNTRIES.get(country)
     params = {
         'apiKey': NEWS_API_KEY,
-        'country': iso_country,
-        'category': category
     }
+    
+    if country: params['country'] = COUNTRIES.get(country)
+    if category: params['category'] = category
     try:
         response = requests.get(base_url, params=params)
         response.raise_for_status()
