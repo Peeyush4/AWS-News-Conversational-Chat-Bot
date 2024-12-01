@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Chat Assistant</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add favicon link -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add favicon link -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,18 +91,7 @@
             const queryInput = document.getElementById("query");
             const chatBox = document.getElementById("chat-box");
             const query = queryInput.value.trim();
-            const query = queryInput.value.trim();
 
-            if (!query) {
-                const errorMessage = document.createElement("div");
-                errorMessage.className = "message bot-message";
-                errorMessage.textContent = "Please enter a valid query.";
-                chatBox.appendChild(errorMessage);
-                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
-                return;
-            }
-
-            // Display the user's message
             if (!query) {
                 const errorMessage = document.createElement("div");
                 errorMessage.className = "message bot-message";
@@ -117,20 +105,11 @@
             const userMessage = document.createElement("div");
             userMessage.className = "message user-message";
             userMessage.textContent = query;
-            userMessage.textContent = query;
             chatBox.appendChild(userMessage);
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
             chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
 
             // Clear the input field
             queryInput.value = "";
-
-            // Display a loading message from the bot
-            const loadingMessage = document.createElement("div");
-            loadingMessage.className = "message bot-message";
-            loadingMessage.textContent = "Processing your request...";
-            chatBox.appendChild(loadingMessage);
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
 
             // Display a loading message from the bot
             const loadingMessage = document.createElement("div");
@@ -145,43 +124,29 @@
                     const data = await response.json();
                     // Remove the loading message
                     chatBox.removeChild(loadingMessage);
-                    // Remove the loading message
-                    chatBox.removeChild(loadingMessage);
 
                     const botMessage = document.createElement("div");
                     botMessage.className = "message bot-message";
 
                     if (data.summary) {
                         botMessage.textContent = "Summary: " + data.summary;
-                    if (data.summary) {
-                        botMessage.textContent = "Summary: " + data.summary;
                     } else {
-                        botMessage.textContent = "No summary available.";
                         botMessage.textContent = "No summary available.";
                     }
 
-
                     chatBox.appendChild(botMessage);
                     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
-                    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
                 } else {
-                    // Remove the loading message
-                    chatBox.removeChild(loadingMessage);
-
                     // Remove the loading message
                     chatBox.removeChild(loadingMessage);
 
                     const errorMessage = document.createElement("div");
                     errorMessage.className = "message bot-message";
                     errorMessage.textContent = "Failed to connect to the server.";
-                    errorMessage.textContent = "Failed to connect to the server.";
                     chatBox.appendChild(errorMessage);
                     chatBox.scrollTop = chatBox.scrollHeight;
                 }
             } catch (error) {
-                // Remove the loading message
-                chatBox.removeChild(loadingMessage);
-
                 // Remove the loading message
                 chatBox.removeChild(loadingMessage);
 
