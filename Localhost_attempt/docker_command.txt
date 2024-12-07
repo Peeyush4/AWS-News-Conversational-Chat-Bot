@@ -1,0 +1,4 @@
+docker run -it -p 8080:8080 `
+    -v "C:\UMD\Sem 3\MSML650 Cloud Computing\Project\AWS-News-Conversational-Chat-Bot\ConvoBotDocker\model:/opt/ml/model/model" `
+    -v "C:\UMD\Sem 3\MSML650 Cloud Computing\Project\AWS-News-Conversational-Chat-Bot\ConvoBotDocker\tokenizer:/opt/ml/model/tokenizer" `
+    convo-bot:v1

@@ -1,0 +1,30 @@
+FROM python:3.8-slim
+FROM huggingface/transformers-pytorch-gpu:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    build-essential \
+    curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    export PATH="$HOME/.cargo/bin:$PATH"
+
+# Upgrade pip and install Python libraries
+RUN pip install --upgrade pip && \
+    pip install flask gunicorn torch transformers safetensors
+
+# Install necessary Python libraries
+RUN pip install flask gunicorn torch transformers
+
+# Copy inference.py to the correct location
+COPY inference.py /opt/ml/model/code/inference.py
+ENTRYPOINT ["python3", "/opt/ml/model/code/inference.py"]
+# Set the working directory
+WORKDIR /opt/ml/model/code
+
+# Expose port 8080 for the application
+EXPOSE 8080
+
+# Use Gunicorn to serve the Flask app
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "inference:app"]
+ENV SAGEMAKER_PROGRAM=inference.py
