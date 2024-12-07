@@ -115,14 +115,14 @@ The overwhelming volume of online news makes it challenging for users to find re
 - Improve frontend design and user experience.
 - Mitigate AI hallucinations by validating model outputs.
 
----
+<!-- ---
 
 ## Team Contributions
 - **Krishna Taduri**: Developed the initial pipeline and frontend. Explored integrations with SNS, SQS, and DynamoDB.
 - **Peeyush Dyavarashetty**: Debugged DistilBERT errors, optimized tokenization, and finalized Bedrock for inference.
 - **Rahul Velaga**: Validated models, tested Lambda, and worked on local ML environments.
 - **Subha Venkat Milind Manda**: Drafted the final project report.
-- **Srijinesh Alanka**: Built a React interface, studied relevant literature, and structured the report.
+- **Srijinesh Alanka**: Built a React interface, studied relevant literature, and structured the report. -->
 
 ---
 
