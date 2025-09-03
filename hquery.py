@@ -16,11 +16,10 @@ SUMMARY_KEY = "output/summary.json"
 
 # SageMaker configurations
 PROCESSING_JOB_NAME = f"summarization-job-{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}"
-ROLE_ARN = "arn:aws:iam::438465147520:role/service-role/SageMaker-ConversationalBot"
-# HUGGINGFACE_IMAGE_URI = "763104351884.dkr.ecr.us-east-1.amazonaws.com/huggingface-pytorch-inference:1.13.1-transformers4.26.1-cpu-py39"
-HUGGINGFACE_IMAGE_URI = "438465147520.dkr.ecr.us-east-1.amazonaws.com/cloud/conversational-bot:v1"
+ROLE_ARN = ""
+HUGGINGFACE_IMAGE_URI = ""
 # NewsAPI key
-NEWS_API_KEY = "6f2549f5dca74560a49b6712e4ac8259"
+NEWS_API_KEY = ""
 
 # Supported countries and categories
 COUNTRIES = {
